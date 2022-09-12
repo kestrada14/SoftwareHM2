@@ -11,8 +11,10 @@ int main(){
     float Add;
     string Name = "Mateo Ortega";
     string AccountOperations;
+    string CommandList = "Statement = Check Account Statement\nDeposit = Deposit Money \n Withdrawl = Withdraw Money \n Purchase = Purchase Stock\n Balance = Total Value of Stocks \n";
+
+    cout << "\n" << CommandList << "\n";
     cin >> AccountOperations;
-    string CommandList = "Statement = Check Account Statement\nDeposit = Deposit Money \n Withdrawl = Withdraw Money \n Purchase = Purchase Stock\n";
 
     Stock Tesla;
         string StockName = "Tesla";
@@ -23,16 +25,14 @@ int main(){
         double MarketCap;
         MarketCap = 939.04 * (10e6);
         float DivYield =0;
-
+    int i = 0;
     Portfolio MateosPort;
     int numstocks;
     MateosPort.SetAccountName(Name);
     MateosPort.SetBalance(Balance);
     MateosPort.SetStockStats(StockName,StockShortName,StockValue,MarketCap,DivYield
     ,CurrentDate);
-
-
-
+    MateosPort.setPortfolioBalance( i =0);
     while(AccountOperations != "Stop"){
         
         if(AccountOperations == "Deposit"){
@@ -54,9 +54,14 @@ int main(){
         else if(AccountOperations == "Balance"){
             MateosPort.Balance();
         }
-        else{
-            cout << "Try again \n";
+        else if(AccountOperations == "StockInfo"){
+            MateosPort.StockInfo();
         }
+        else{
+            cout << "Try again \n" << CommandList << "\n";
+        }
+
+
 
       cin >> AccountOperations;
     }
