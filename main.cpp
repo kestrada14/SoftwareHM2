@@ -11,12 +11,12 @@ int main(){
     float Add;
     string Name = "Mateo Ortega";
     string AccountOperations;
-    string CommandList = "Statement = Check Account Statement\nDeposit = Deposit Money \n Withdrawl = Withdraw Money \n Purchase = Purchase Stock\n Balance = Total Value of Stocks \n";
+    string CommandList = "Statement = Check Account Statement\nDeposit = Deposit Money \n Withdrawl = Withdraw Money \n Purchase = Purchase Stock\n Balance = Total Value of Stocks \n StockInfo =  Check The Stock Information You are purchasing \n";
 
     cout << "\n" << CommandList << "\n";
     cin >> AccountOperations;
 
-    Stock Tesla;
+    Stock Tesla;  // Testing for Tesla Stock 
         string StockName = "Tesla";
         string StockShortName ="TSLA";
         string PurchaseDate = "09/11/2022";
@@ -25,6 +25,10 @@ int main(){
         double MarketCap;
         MarketCap = 939.04 * (10e6);
         float DivYield =0;
+
+
+
+
     int i = 0;
     Portfolio MateosPort;
     int numstocks;

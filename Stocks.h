@@ -4,7 +4,7 @@
 
 
 class Stock{
-    protected:
+    private:
         std::string StockName;
         std::string StockShortName;
         std::string PurchaseDate;
@@ -60,14 +60,14 @@ class  Portfolio: public Stock, public Account{
 private:
 
 double PortfolioBalance;
-std::map<std::string ,double > Portfoliolist;
+std::map<std::string ,double > Portfoliolist; // This map will store the history of all transactions
 
 public:
 void setPortfolioBalance(double Bal){
     PortfolioBalance = Bal;
 }
 void StockPurchase(int NumOfStocksPurchased){
-    double Balance = NumOfStocksPurchased * StockValue;
+    double Balance = NumOfStocksPurchased * GetValue();
     if (Balance > GetBalance()){
         std::cout << "Insufficent Balance";
     }
