@@ -1,6 +1,8 @@
 #include <iostream>
 #include <map>
 #include "BrockageAccount.h"
+#include <chrono>
+#include <ctime> 
 
 
 class Stock{
@@ -63,6 +65,10 @@ double PortfolioBalance;
 std::map<std::string ,double > Portfoliolist; // This map will store the history of all transactions
 
 public:
+
+Portfolio(){
+    PortfolioBalance = 0;
+}
 void setPortfolioBalance(double Bal){
     PortfolioBalance = Bal;
 }
@@ -84,5 +90,116 @@ void Balance(){
 }
 
 
+};
+
+class Money{
+private:
+double amount;
+bool availabe;
+std::string currency_type;
+
+public:
+//constructor
+Money (double cash,std::string currency){
+    amount = cash;
+    currency_type = currency;
+    availabe = false;
+}
+
+void SetCash(double money){
+    amount = money;
+}
+double GetCash(){
+    return amount;
+} 
+void SetCurrency(std::string type){
+    currency_type = type; // USD, Euros ,etc.
+}
+std::string GetCurrency(){
+    return currency_type;
+} 
+
+void DepositMoney(double deposit){
+    amount = deposit + amount;
+    
+        std::cout << "Deposit of " << deposit <<  "Completed\n";
+}
+void WithdrawMoney(double withdrawl){
+    if(withdrawl > amount){
+        std::cout << "No money available \n";
+    }
+    else{
+        amount = amount - withdrawl;
+        std::cout << "Withdraw Completed of " << withdrawl << " \n" << "Current Balance of Account is "<< amount << "\n";
+    }
+}
+
+};
+
+class Time{
+    private:
+    time_t my_time;
+    std::string TimeZone;
+    public:
+    Time(std::string Zone){
+        my_time = time(NULL);
+        TimeZone = Zone;
+    }
+    
+    void SetTimeZone ( std::string Zones){
+        TimeZone = Zones;
+    }
+    std::string GetTimeZone(){
+        return TimeZone;
+    }
+
+
+};
+
+class Status{
+    private:
+    bool active; // check if account is on
+    bool LowMoneyWarning;
+    public:
+    Status (){
+        active = false;
+        LowMoneyWarning = false;
+    }
+    void setStatus( bool stat){
+        active = stat;
+    }
+    void GetWarning(double money){//  going to get from money class to set the warning
+        if ( money< 1000){
+            LowMoneyWarning = true;
+            std::cout << "Add money to account balance is low \n" << "Current Balance is:" << money << "\n";
+        }
+        else{
+            LowMoneyWarning = false;
+        }
+    }
+
+};
+
+class Profits{
+
+};
+
+class History{
+
+};
+
+class Dates{
+
+};
+
+class Analysis{
+
+};
+
+class Buy{
+
+};
+
+class Sell{
 
 };
