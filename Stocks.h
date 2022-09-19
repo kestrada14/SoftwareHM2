@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include "BrockageAccount.h"
 
 
 class Stock{
@@ -13,7 +14,6 @@ class Stock{
         float DivYield;
           
     public:
-
         void SetStockStats(std::string Name, std::string ShortName , float Value,
         double MKCap, float Yield, std::string Date
         ){
@@ -55,23 +55,33 @@ class Stock{
 
 
 
-class  Portfolio: public Stock{
-
-public:
-
-void StockPurchase(){
-
-
-}
-
-void  ComparePortfolio(){
-
-
-}
-
-
+class  Portfolio: public Stock, public Account{
 
 private:
+
+double PortfolioBalance;
+std::map<std::string ,double > Portfoliolist; // This map will store the history of all transactions
+
+public:
+void setPortfolioBalance(double Bal){
+    PortfolioBalance = Bal;
+}
+void StockPurchase(int NumOfStocksPurchased){
+    double Balance = NumOfStocksPurchased * GetValue();
+    if (Balance > GetBalance()){
+        std::cout << "Insufficent Balance";
+    }
+    else{
+        WithdrawlToAccount(Balance);
+        PortfolioBalance = PortfolioBalance+ Balance;
+        Portfoliolist.insert(std::pair<std::string , double>(GetShortName(),Balance));
+        std::cout << "\n" << Portfoliolist[GetShortName()] << "\n";
+    }
+}
+
+void Balance(){
+    std::cout << "\n" << PortfolioBalance << "\n";
+}
 
 
 

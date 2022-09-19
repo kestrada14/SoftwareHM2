@@ -29,7 +29,7 @@ void DepositToAccount(float add){
     }
 }
 void WithdrawlToAccount(float withdrawl){
-    if (withdrawl>0){
+    if (AccountBalance< withdrawl){
          std::cout << "Invalid Withdrawl \n";
     }
     else{
