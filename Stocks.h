@@ -182,13 +182,95 @@ class Status{
 
 class Profits{
 
+    private:
+        float gainProf;
+    
+public:
+    // Constructor
+    explicit Profit (float gain)
+    : prof (gain){
+    }
+    
+    // Mutator
+    void setProf(float gainProf){
+        prof = gainProf;
+    }
+    
+    // Accessor
+    void getProf(){
+        return gainProf;
+    }
 };
 
 class History{
 
+private:
+    float transaction;
+    
+public:
+    // Constructor
+    explicit History(float numTrans)
+    : trans(numtrans){
+    }
+    
+    // Mutator
+    void settrans(float transaction){
+        trans = transaction;
+    }
+    
+    // Accessor
+    void gettrans(){
+        return transaction;
+    }
 };
 
 class Dates{
+
+private:
+    float reqDate;
+    int month, day, year;
+    
+public:
+    // Constructor
+    explicit Dates( int mn, int day, int yr)
+    : reqDate( mn, day, yr){
+    }
+    
+    // Mutator
+    void setDate(int mn, int dy, int yr){
+        static int length[] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+   month = max(1, mn);
+   month = min(month,12);
+
+   day = max(1,dy);
+   day = min(day, length[month]);
+
+   year = max(1, yr);
+    }
+    
+    // Accessor
+    void getDate(){
+
+    int total = 0;
+   static int length[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+   for (int i=1; i < month; i++) total += length[i];
+   total += day;
+   return (total);
+}
+
+int Date::GetMonth()
+{
+   return month;
+}
+
+void Date::SetMonth(int mn)
+{
+   month = max(1, mn);
+   month = min(month, 12);
+    }
+    
 
 };
 
