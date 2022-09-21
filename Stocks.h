@@ -193,13 +193,67 @@ class Dates{
 };
 
 class Analysis{
+private:
+    bool stockWorth;
+    
+    
+public:
+    // constructor
+    explicit Analysis(bool worth)
+    :  stockWorth(worth){
+    }
+    
+
+    void getAnalysis(){
+        return stockWorth
+    }
+    
+    void setWorth(bool worth)
+        stockWorth = worth;
 
 };
 
 class Buy{
-
+private:
+    float amount;
+    
+public:
+    // Constructor
+    explicit Buy(float stockBuy)
+    : amount(stockBuy){
+    }
+    
+    // Mutator
+    void setPrice(float price){
+        amount = price;
+    }
+    
+    // Accessor
+    void stockPrice(){
+        return amount;
+    }
+    // TODO: add a buy function that add stock to portfolio
 };
 
 class Sell{
-
+private:
+    float amount;
+    
+public:
+    // Constructor
+    explicit Sell(float stockSell)
+    : amount(stockSell){
+    }
+    
+    // Mutator
+    void setPrice(float price){
+        amount = price;
+    }
+    
+    // Accessor
+    void stockPrice(){
+        return amount;
+    }
+    
+    //TODO: create a sell function that will add stock to the portfolio
 };
